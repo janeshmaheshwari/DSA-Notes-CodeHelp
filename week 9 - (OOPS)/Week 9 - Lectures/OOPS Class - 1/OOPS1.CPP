@@ -28,6 +28,8 @@ Only Function in class c++, that has no return type.
 ctor --> It Construct an instance of class.
 */
 
+// Class is Polymorphism
+
     // paremeterized ctor
     Student(int a, int age, bool _b, int _c)
     {

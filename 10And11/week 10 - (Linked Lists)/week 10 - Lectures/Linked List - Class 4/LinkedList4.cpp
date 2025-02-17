@@ -19,6 +19,3 @@
 // LeetCode 82 : Remove Duplicates from Sorted List II
 // GFG : Remove duplicates from a sorted linked list
 //GFG : Remove duplicates from an unsorted linked list
-
-// LeetCode 148 : Sort List
-// GFG : Merge Sort for Linked List

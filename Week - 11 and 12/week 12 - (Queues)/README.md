@@ -1,4 +1,4 @@
-Queue Class - 1
+Queue Class - 2
 => 
 => Algorithm :-
 

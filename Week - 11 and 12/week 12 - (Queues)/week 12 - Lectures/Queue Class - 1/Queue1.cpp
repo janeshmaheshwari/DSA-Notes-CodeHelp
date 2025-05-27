@@ -93,7 +93,7 @@ public:
 
 class CQueue{
 // Circular Queue - To Prevent Memory Loss
-    public:
+public:
     int *arr;
     int size;
     int front;
@@ -182,10 +182,144 @@ class CQueue{
 
 // Implement Doubly Ended Queue (deque)
 
-class DeQueue{
-// DeQueue - 
-    public:
+class Deque{
+public:
+    int *arr;
+    int size;
+    int front;
+    int rear;
 
+    Deque(int size)
+    {
+        arr = new int[size];
+        this->size = size;
+        front = -1;
+        rear = -1;
+    }
+
+    void pushBack(int val)
+    {
+        // OverFlow
+        if((front == 0 && rear == size-1) || (front - rear == 1))
+        {
+            cout << "Queue OverFlow !!!" << endl;
+            return;
+        }
+        
+        // Empty Case - First Element
+        else if(front == -1 && rear == -1) // Empty
+        {
+            front++;
+            rear++;
+            arr[rear] = val;
+        }
+        
+        // Circular Nature
+        else if(rear == size-1 && front != 0)
+        {
+            rear = 0;
+            arr[rear] = val;
+        }
+        
+        // Normal Case
+        else
+        {
+            arr[++rear] = val;
+        }
+    }
+
+    void pushFront(int val)
+    {
+       // OverFlow
+       if((front == 0 && rear == size-1) || (front - rear == 1))
+       {
+           cout << "Queue OverFlow !!!" << endl;
+           return;
+       }
+       
+       // Empty Case - First Element
+       else if(front == -1 && rear == -1) // Empty
+       {
+           front++;
+           rear++;
+           arr[front] = val;
+       }
+       
+       // Circular Nature
+       else if(front == 0 && rear != size-1)
+       {
+           front = size-1;
+           arr[front] = val;
+       }
+       
+       // Normal Case
+       else
+       {
+           arr[--front] = val;
+       }
+    }
+
+    void popFront()
+    {
+        // UnderFlow
+        if(front == -1 && rear == -1) // Empty
+        {
+            cout << "Queue UnderFlow !!!" << endl;
+            return;
+        }
+        
+        // Single Element - Empty
+        else if(front == rear)
+        {
+            arr[front] = -1;
+            front = -1;
+            rear = -1;
+        }
+        
+        // Circular Nature
+        else if(front == size-1)
+        {
+            arr[front] = -1;
+            front = 0;
+        }
+
+        // Normal Case
+        else
+        {
+            arr[front] = -1;
+            front++;
+        }
+    }
+    void popBack()
+    {
+        // UnderFlow
+        if(front == -1 && rear == -1) // Empty
+        {
+            cout << "Queue UnderFlow !!!" << endl;
+            return;
+        }
+        
+        // Single Element - Empty
+        else if(front == rear)
+        {
+            arr[front] = -1;
+            front = -1;
+            rear = -1;
+        }
+        
+        // Circular Nature
+        else if(rear == 0)
+        {
+            arr[rear] = -1;
+            rear = size-1;
+        }
+
+        // Normal Case
+        else
+        {
+            arr[rear--] = -1;
+        }
+    }
 };
 
 int main()
@@ -290,8 +424,24 @@ int main()
     q.pop();
     q.print();
 */
-
+/*
     deque<int> dq;
+    dq.push_front(10);
+    cout << dq.front() << endl;
+    cout << dq.back() << endl;
+    
+    dq.push_back(100);
+    cout << dq.front() << endl;
+    cout << dq.back() << endl;
+    
+    dq.pop_front();
+    cout << dq.front() << endl;
+    cout << dq.back() << endl;
+    
+    dq.pop_back();
+    cout << dq.front() << endl;
+    cout << dq.back() << endl;
+*/
 
     return 0;
 }
